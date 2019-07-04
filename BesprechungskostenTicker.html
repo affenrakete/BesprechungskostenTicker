@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    
+Date: 04.07.2019
+Autor: Peter Siemer
+-->
+<body>
+<h1>Besprechungskosten</h1>
+
+<table>
+<tr>
+<td><lable>Anzahl der Teilnehmer</lable></td>
+<td><input type="number" name="anzahl" id="anzahl" value="2"></td>
+</tr>
+<tr>
+<td><lable>Stundensatz in €</lable></td>
+<td><input type="number" name="stundensatz" id="stundensatz" value="79"></td>
+</tr>
+</table>
+<br />
+<button onclick="startTimer();">Start</button>
+<button onclick="stopTimer();">Stop</button>
+<button onclick="resetTimer();">Reset</button>
+
+<h2 id="kosten"></h2>
+
+<script>
+var kosten = 0;
+var tick;
+
+function myTimer() {
+
+  var anzahl = document.querySelector("#anzahl").value;
+  var stundensatz = document.querySelector("#stundensatz").value;
+  
+  kosten = kosten + anzahl * stundensatz/3600;
+  
+  var ausgabe = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(kosten)
+  
+  document.getElementById("kosten").innerHTML = ausgabe.toString();
+}
+
+function startTimer() {
+  tick = setInterval(myTimer, 1000);
+}
+
+function stopTimer() {
+  clearInterval(tick);
+}
+
+function resetTimer() {
+  kosten = 0;
+  clearInterval(tick);
+  
+  document.getElementById("kosten").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
