@@ -4,29 +4,38 @@
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    
+
+https://github.com/affenrakete/BesprechungskostenTicker
+
 Date: 04.07.2019
 Autor: Peter Siemer
 -->
+<head>
+  <title>Besprechungskosten</title>
+</head>
+
 <body>
+
 <h1>Besprechungskosten</h1>
 
 <table>
 <tr>
-<td><lable>Anzahl der Teilnehmer</lable></td>
+<td>Anzahl der Teilnehmer</td>
 <td><input type="number" name="anzahl" id="anzahl" value="2"></td>
 </tr>
 <tr>
-<td><lable>Stundensatz in €</lable></td>
+<td>Stundensatz in €</td>
 <td><input type="number" name="stundensatz" id="stundensatz" value="79"></td>
 </tr>
 </table>
+
 <br />
+
 <button onclick="startTimer();">Start</button>
 <button onclick="stopTimer();">Stop</button>
 <button onclick="resetTimer();">Reset</button>
 
-<h2 id="kosten"></h2>
+<p id="kosten" style="font-size:2em;font-weight:700;"></p>
 
 <script>
 var kosten = 0;
